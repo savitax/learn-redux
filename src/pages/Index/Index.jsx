@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { NavLink, Outlet } from 'react-router-dom'
 import { message } from 'antd'
 import './Index.css'
 
 export default function Index() {
-    const data = useSelector((state) => state.testReducer.user);
-    console.log('data', data);
     useEffect(() => {
         message.success('Index组件挂载')
         return () => {
@@ -16,7 +13,9 @@ export default function Index() {
     return (
         <div id='index'>
             <div className="i_left">
-                <h2>欢迎{data}来到首页</h2>
+                <NavLink to="/home">HOME</NavLink>
+                <br></br>
+                <NavLink to="/login">登录</NavLink>
             </div>
             <div className="i_right">
                 <Outlet />
